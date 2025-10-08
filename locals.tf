@@ -18,5 +18,7 @@ locals {
     }
 
     create_isolated_subnets = false
+    #this is the value that decides whether or not we want an isolated subnet. I left it as false for now
 }
+
 
