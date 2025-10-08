@@ -6,7 +6,8 @@ resource "aws_subnet" "private" {
     availability_zone = each.value.az
 
     tags = {
-        "Name" = "${local.env}-private-us-east-1a"
+        "Name" = "${local.env}-private-${each.value.az}"
         #EKS space
     }
 }
+
