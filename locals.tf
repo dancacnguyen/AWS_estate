@@ -8,12 +8,15 @@ locals {
     
     private_subnets = {
         public_1 = {
-            cidr = "10.0.64.0/20"
+            cidr = cidrsubnet(local.vpc_cidr, 3, 2)
             az = "us-east-1a"
         }
         public_2 = {
-            cidr = "10.0.96.0/20"
+            cidr = cidrsubnet(local.vpc_cidr, 3, 3)
             az = "us-east-1b"
         }
     }
+
+    create_isolated_subnets = false
 }
+
