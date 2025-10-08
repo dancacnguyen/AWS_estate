@@ -7,16 +7,13 @@ resource "aws_route_table" "public" {
     }
 
     tags = {
-        Name = "dev-public"
+        Name = "${local.env}-public"
     }
 }
 
-resource "aws_route_table_association" "public_zone1" {
-    subnet_id = aws_subnet.public_zone1.id
-    route_table_id = aws_route_table.public.id
-}
+resource "aws_route_table_association" "public" {
+    count = length(local.public_subnets)
 
-resource "aws_route_table_association" "public_zone2" {
-    subnet_id = aws_subnet.public_zone2.id
+    subnet_id = aws_subnet.public[count.index].id
     route_table_id = aws_route_table.public.id
 }
