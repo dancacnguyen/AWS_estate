@@ -1,5 +1,5 @@
 resource "aws_subnet" "isolated_zone1" {
-    count = local.create_isoalted_subnets ? 1 : 0
+    count = local.create_isolated_subnets ? 1 : 0
     #checks locals.tf to see if we decided we wanted an isolated subnet or not
     
     vpc_id = aws_vpc.main.id
@@ -12,7 +12,7 @@ resource "aws_subnet" "isolated_zone1" {
 }
 
 resource "aws_subnet" "isolated_zone2" {
-    count = local.create_isoalted_subnets ? 1 : 0
+    count = local.create_isolated_subnets ? 1 : 0
 
     vpc_id = aws_vpc.main.id
     cidr_block = "10.0.128.0/20"
@@ -23,4 +23,5 @@ resource "aws_subnet" "isolated_zone2" {
     }
 
 }
+
 
