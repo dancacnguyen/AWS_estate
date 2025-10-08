@@ -1,21 +1,13 @@
-resource "aws_subnet" "private_zone1" {
+resource "aws_subnet" "private" {
+    for_each = local.private_subnets
+
     vpc_id = aws_vpc.main.id
-    cidr_block = "10.0.64.0/20"
-    availability_zone = "us-east-1a"
+    cidr_block = each.value.cidr
+    availability_zone = each.value.az
 
     tags = {
-        "Name" = "dev-private-us-east-1a"
+        "Name" = "${local.env}-private-${each.value.az}"
         #EKS space
     }
 }
 
-resource "aws_subnet" "private_zone2" {
-    vpc_id = aws_vpc.main.id
-    cidr_block = "10.0.64.0/20"
-    availability_zone = "us-east-1b"
-
-    tags = {
-        "Name" = "dev-private-us-east-1b"
-        #EKS space
-    }
-}
