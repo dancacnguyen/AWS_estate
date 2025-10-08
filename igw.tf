@@ -2,6 +2,7 @@ resource "aws_internet_gateway" "igw" {
     vpc_id = aws_vpc.main.id
 
     tags = {
-        Name = "dev-igw"
+        Name = "${local.env}-igw"
     }
+
 }
