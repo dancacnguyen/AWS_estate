@@ -1,10 +1,10 @@
 locals {
     region = "us-east-1"
-    vpc_cidr = "10.0.0.0/20"
+    vpc_cidr = "10.0.0.0/16"
     env = "dev" 
 
     azs = ["us-east-1a", "us-east-1b"]
-    public_subnets = ["10.0.0.0/20", "10.0.32.0/20"]
+    public_subnets = ["10.0.0.0/19", "10.0.32.0/19"]
     
     private_subnets = {
         public_1 = {
@@ -20,5 +20,6 @@ locals {
     create_isolated_subnets = false
     #this is the value that decides whether or not we want an isolated subnet. I left it as false for now
 }
+
 
 
