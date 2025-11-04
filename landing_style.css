@@ -1,8 +1,15 @@
 *{
     display: flex;
     font-size: medium;
-    background-color: white;
+}
+
+html{
+    background-color: blue;
+}
+
+body{
     margin: 10px 20px 15px;
+    background-color: white;
 }
 
 #hide-header{
