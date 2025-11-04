@@ -1,0 +1,11 @@
+*{
+    display: flex;
+    font-size: medium;
+    background-color: white;
+    margin: 10px 20px 15px;
+}
+
+#hide-header{
+    display: none;
+    font-size: 0%;
+}
